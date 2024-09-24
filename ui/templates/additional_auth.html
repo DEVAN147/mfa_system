@@ -1,0 +1,30 @@
+<!-- additional_auth.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Additional Authentication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Additional Authentication Required</h2>
+    {% if auth_method == 'OTP' %}
+        <p>An OTP has been sent to your registered device.</p>
+        <form method="POST">
+            <label>Enter OTP:</label><br>
+            <input type="text" name="credential" required><br>
+            <button type="submit">Verify OTP</button>
+        </form>
+    {% elif auth_method == 'Biometric' %}
+        <p>Please enter your biometric pattern:</p>
+        <form method="POST">
+            <label>Pattern:</label><br>
+            <input type="text" name="credential" required><br>
+            <button type="submit">Verify Pattern</button>
+        </form>
+    {% endif %}
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

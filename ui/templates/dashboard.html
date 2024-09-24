@@ -1,0 +1,19 @@
+<!-- dashboard.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Welcome to Your Dashboard</h2>
+    <p>You have successfully logged in.</p>
+    <h3>Provide Feedback on Your Authentication Experience:</h3>
+    <form method="POST">
+        <textarea name="feedback" rows="4" cols="50" placeholder="Your feedback here..." required></textarea><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
